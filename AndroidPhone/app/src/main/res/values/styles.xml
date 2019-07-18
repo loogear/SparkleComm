@@ -1,0 +1,74 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!--  <item name="colorAccent">@color/colorAccent</item> -->
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/notAnimation</item>
+    </style>
+
+    <style name="notAnimation">
+        <item name="android:activityOpenEnterAnimation">@null</item>
+        <item name="android:activityOpenExitAnimation">@null</item>
+        <item name="android:activityCloseEnterAnimation">@null</item>
+        <item name="android:activityCloseExitAnimation">@null</item>
+        <item name="android:taskOpenEnterAnimation">@null</item>
+        <item name="android:taskOpenExitAnimation">@null</item>
+        <item name="android:taskCloseEnterAnimation">@null</item>
+        <item name="android:taskCloseExitAnimation">@null</item>
+        <item name="android:taskToFrontEnterAnimation">@null</item>
+        <item name="android:taskToFrontExitAnimation">@null</item>
+        <item name="android:taskToBackEnterAnimation">@null</item>
+        <item name="android:taskToBackExitAnimation">@null</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <declare-styleable name="CustomControl">
+        <attr name="title_text" format="string" />
+        <attr name="title_text_color" format="color" />
+        <attr name="checked_text_color" format="color" />
+        <attr name="title_text_margin_top" format="integer" />
+        <attr name="title_text_fontsize" format="integer" />
+
+        <attr name="title2_text" format="string" />
+
+        <attr name="image_width" format="integer" />
+        <attr name="image_height" format="integer" />
+        <attr name="image_drawable" format="reference|integer" />
+        <attr name="image_drawable2" format="reference|integer" />
+
+        <attr name="checked" format="boolean" />
+        <attr name="checked_image" format="reference|integer" />
+        <attr name="unchecked_image" format="reference|integer" />
+    </declare-styleable>
+
+    <style name="DialpadKeyNumberStyle">
+        <item name="android:textSize">28dp</item>
+        <item name="android:fontFamily">sans-serif-regular</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="DialpadKeyLettersStyle">
+        <item name="android:textColor">#ffd4d6d7</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif-regular</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+</resources>

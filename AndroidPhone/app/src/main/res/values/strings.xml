@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">劳格VOIP</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="offline">离线</string>
+    <string name="online">在线</string>
+    <string name="error_call">还没有注册成功，不能拨打电话</string>
+    <string name="call_answer">接听</string>
+    <string name="call_reject">拒绝</string>
+    <string name="call_hungup">挂断</string>
+    <string name="call_incoming">来电</string>
+    <string name="call_mute">静音</string>
+    <string name="call_video">视频</string>
+    <string name="call_multiparty">多方</string>
+    <string name="call_record">录音</string>
+    <string name="call_hold">保持</string>
+    <string name="call_trans">转移</string>
+    <string name="title_activity_in_call">InCallActivity</string>
+    <string name="show_preview">预览</string>
+    <string name="hide_preview">隐藏</string>
+    <string name="speaker_on">免提</string>
+    <string name="keypad">键盘</string>
+    <string name="calling">正在拨号</string>
+    <string name="hanguping">正在挂断</string>
+    <string name="callend">通话结束</string>
+    <string name="ready_answer">准备接听</string>
+    <string name="permissions_error_record">无录音权限，将影响通话</string>
+    <string name="permissions_error_location">无定位权限，将影响通话</string>
+    <string name="permissions_error_storage">无外部存储权限，将影响通话</string>
+    <string name="permissions_error_phone">无电话权限，将影响通话</string>
+    <string name="permissions_error_camera">无相机权限，将影响视频通话</string>
+    <string name="permissions_error_contacts">无通讯录权限，将影响通话</string>
+
+    <string name="tab_dialer">拨号</string>
+    <string name="tab_contacts">联系人</string>
+    <string name="tab_message">消息</string>
+    <string name="tab_metting">会议</string>
+    <string name="tab_more">更多</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_setting_preference">设置</string>
+</resources>
