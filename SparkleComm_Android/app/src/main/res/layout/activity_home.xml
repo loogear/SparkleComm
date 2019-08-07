@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:background="#FFFFFFFF"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp">
+
+        <LinearLayout
+            android:id="@+id/state_layout"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:background="#FFFFFFFF"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/OnlineImage"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/state_offline" />
+            <TextView
+                android:id="@+id/OnlineState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="2dp"
+                android:text="@string/offline" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/sip_url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="1019@192.168.0.247" />
+
+        <LinearLayout
+            android:id="@+id/setting_layout"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:background="#FFFFFFFF"
+            android:gravity="right"
+            android:paddingTop="6dp"
+            android:orientation="horizontal">
+
+            <com.loogear.loogearphone.uicontrol.CustomImageView xmlns:custom="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/setting"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                custom:image_drawable="@drawable/tab_mine1"
+                custom:image_drawable2="@drawable/tab_mine2"
+                custom:image_height="20"
+                custom:image_width="20"
+                custom:title_text=""
+                custom:title_text_color="@android:color/black"
+                custom:title_text_fontsize="1"
+                custom:title_text_margin_top="0" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#55cccccc" />
+
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#55cccccc" />
+
+
+    <LinearLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFFFF"
+        android:orientation="horizontal"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp">
+
+        <com.loogear.loogearphone.uicontrol.CustomRadio xmlns:custom="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/tab_dialer"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_weight="1"
+            custom:checked="false"
+            custom:checked_image="@drawable/tab_dialer2"
+            custom:image_height="25"
+            custom:image_width="25"
+            custom:title_text="@string/tab_dialer"
+            custom:title_text_color="#323232"
+            custom:checked_text_color="#1991eb"
+            custom:title_text_fontsize="12"
+            custom:title_text_margin_top="3"
+            custom:unchecked_image="@drawable/tab_dialer1" />
+
+        <com.loogear.loogearphone.uicontrol.CustomRadio xmlns:custom="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/tab_contacts"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_weight="1"
+            custom:checked="false"
+            custom:checked_image="@drawable/tab_contacts2"
+            custom:image_height="25"
+            custom:image_width="25"
+            custom:title_text="@string/tab_contacts"
+            custom:title_text_color="#323232"
+            custom:checked_text_color="#1991eb"
+            custom:title_text_fontsize="12"
+            custom:title_text_margin_top="3"
+            custom:unchecked_image="@drawable/tab_contacts1" />
+
+        <com.loogear.loogearphone.uicontrol.CustomRadio xmlns:custom="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/tab_message"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_weight="1"
+            custom:checked="false"
+            custom:checked_image="@drawable/tab_message2"
+            custom:image_height="25"
+            custom:image_width="25"
+            custom:title_text="@string/tab_message"
+            custom:title_text_color="#323232"
+            custom:checked_text_color="#1991eb"
+            custom:title_text_fontsize="12"
+            custom:title_text_margin_top="3"
+            custom:unchecked_image="@drawable/tab_message1" />
+
+        <com.loogear.loogearphone.uicontrol.CustomRadio xmlns:custom="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/tab_metting"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_weight="1"
+            custom:checked="false"
+            custom:checked_image="@drawable/tab_meeting2"
+            custom:image_height="25"
+            custom:image_width="25"
+            custom:title_text="@string/tab_metting"
+            custom:title_text_color="#323232"
+            custom:checked_text_color="#1991eb"
+            custom:title_text_fontsize="12"
+            custom:title_text_margin_top="3"
+            custom:unchecked_image="@drawable/tab_meeting1" />
+
+    </LinearLayout>
+</LinearLayout>

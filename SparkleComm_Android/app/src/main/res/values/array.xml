@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cates">
+        <item>酒店</item>
+        <item>商超</item>
+        <item>酒水专卖</item>
+    </string-array>
+    <string-array name="cates_value">
+        <item>001</item>
+        <item>002</item>
+        <item>003</item>
+    </string-array>
+    <string-array name="days">
+        <item>周一</item>
+        <item>周二</item>
+        <item>周三</item>
+        <item>周四</item>
+        <item>周五</item>
+        <item>周六</item>
+        <item>周日</item>
+    </string-array>
+
+    <string-array name="day_value">
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+        <item>8</item>
+        <item>16</item>
+        <item>32</item>
+        <item>64</item>
+    </string-array>
+</resources>

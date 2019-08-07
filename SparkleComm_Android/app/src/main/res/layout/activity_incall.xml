@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/bg_phone"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+
+        <FrameLayout
+            android:id="@+id/surfaceIn_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <SurfaceView
+                android:id="@+id/surfaceIncomingVideo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/surfacePreviewCapture_frame"
+            android:layout_width="120dp"
+            android:layout_height="160dp"
+            android:background="@android:color/holo_blue_dark"
+            android:paddingLeft="0dp"
+            android:paddingTop="0dp"
+            android:paddingRight="0dp"
+            android:paddingBottom="0dp">
+
+            <SurfaceView
+                android:id="@+id/surfacePreviewCapture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/CameraLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:gravity="right"
+            android:orientation="vertical">
+
+            <com.loogear.loogearphone.uicontrol.CustomCheckBox xmlns:custom="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/camera_hidden"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="20dp"
+                custom:checked="false"
+                custom:checked_image="@drawable/camera_hidden2"
+                custom:image_height="30"
+                custom:image_width="30"
+                custom:title_text=""
+                custom:title_text_color="@android:color/white"
+                custom:title_text_fontsize="14"
+                custom:title_text_margin_top="3"
+                custom:unchecked_image="@drawable/camera_hidden1" />
+
+            <com.loogear.loogearphone.uicontrol.CustomImageView xmlns:custom="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/camera_switch"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="0dp"
+                custom:image_drawable="@drawable/camera_switch1"
+                custom:image_drawable2="@drawable/camera_switch2"
+                custom:image_height="30"
+                custom:image_width="30"
+                custom:title_text=""
+                custom:title_text_color="@android:color/white"
+                custom:title_text_margin_top="0" />
+
+            <com.loogear.loogearphone.uicontrol.CustomImageView xmlns:custom="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/camera_rotate"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="0dp"
+                custom:image_drawable="@drawable/camera_rotate"
+                custom:image_height="30"
+                custom:image_width="30"
+                custom:title_text=""
+                custom:title_text_color="@android:color/white"
+                custom:title_text_margin_top="0" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/CallInfoLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imgHead"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                app:srcCompat="@drawable/gray_head" />
+
+            <TextView
+                android:id="@+id/txtInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                android:text=""
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txtPhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                android:text="10086"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txtTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                android:text=""
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/FunctionLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/group_button1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.loogear.loogearphone.uicontrol.CustomCheckBox xmlns:custom="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/call_mute"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    custom:checked="false"
+                    custom:checked_image="@drawable/jingyin2"
+                    custom:image_height="30"
+                    custom:image_width="30"
+                    custom:title_text="@string/call_mute"
+                    custom:title_text_color="@android:color/white"
+                    custom:title_text_fontsize="14"
+                    custom:title_text_margin_top="3"
+                    custom:unchecked_image="@drawable/jingyin1" />
+
+                <com.loogear.loogearphone.uicontrol.CustomImageView xmlns:custom="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/call_multiparty"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    custom:image_drawable="@drawable/multiparty_call"
+                    custom:image_height="30"
+                    custom:image_width="30"
+                    custom:title_text="@string/call_multiparty"
+                    custom:title_text_color="@android:color/white"
+                    custom:title_text_fontsize="14"
+                    custom:title_text_margin_top="3" />
+
+                <com.loogear.loogearphone.uicontrol.CustomCheckBox xmlns:custom="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/call_video"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    custom:checked="false"
+                    custom:checked_image="@drawable/shipin2"
+                    custom:image_height="30"
+                    custom:image_width="30"
+                    custom:title_text="@string/call_video"
+                    custom:title_text_color="@android:color/white"
+                    custom:title_text_fontsize="14"
+                    custom:title_text_margin_top="3"
+                    custom:unchecked_image="@drawable/shipin1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/group_button2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:orientation="horizontal">
+
+                <com.loogear.loogearphone.uicontrol.CustomCheckBox xmlns:custom="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/call_hold"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    custom:checked="false"
+                    custom:checked_image="@drawable/hold2"
+                    custom:image_height="30"
+                    custom:image_width="30"
+                    custom:title_text="@string/call_hold"
+                    custom:title_text_color="@android:color/white"
+                    custom:title_text_fontsize="14"
+                    custom:title_text_margin_top="3"
+                    custom:unchecked_image="@drawable/hold1" />
+
+                <com.loogear.loogearphone.uicontrol.CustomImageView xmlns:custom="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/call_trans"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    custom:image_drawable="@drawable/hujiaozhuanyi1"
+                    custom:image_height="30"
+                    custom:image_width="30"
+                    custom:title_text="@string/call_trans"
+                    custom:title_text_color="@android:color/white"
+                    custom:title_text_fontsize="14"
+                    custom:title_text_margin_top="3" />
+
+                <com.loogear.loogearphone.uicontrol.CustomCheckBox xmlns:custom="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/call_record"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    custom:checked="false"
+                    custom:checked_image="@drawable/ic_record2"
+                    custom:checked_text_color="@android:color/holo_blue_light"
+                    custom:image_height="30"
+                    custom:image_width="30"
+                    custom:title_text="@string/call_record"
+                    custom:title_text_color="@android:color/white"
+                    custom:title_text_fontsize="14"
+                    custom:title_text_margin_top="3"
+                    custom:unchecked_image="@drawable/ic_record" />
+
+            </LinearLayout>
+
+            <include
+                android:id="@+id/keypad"
+                layout="@layout/incall_keypad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <com.loogear.loogearphone.uicontrol.CustomCheckBox xmlns:custom="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/call_keypad"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    custom:checked="false"
+                    custom:checked_image="@drawable/bohao_up"
+                    custom:image_height="30"
+                    custom:image_width="30"
+                    custom:title_text="@string/keypad"
+                    custom:title_text_color="@android:color/white"
+                    custom:title_text_fontsize="14"
+                    custom:title_text_margin_top="3"
+                    custom:unchecked_image="@drawable/bohao_down" />
+
+                <com.loogear.loogearphone.uicontrol.CustomImageView xmlns:custom="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/call_hangup"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    custom:image_drawable="@drawable/call_hangup"
+                    custom:image_height="70"
+                    custom:image_width="70"
+                    custom:title_text=""
+                    custom:title_text_color="@android:color/white"
+                    custom:title_text_margin_top="0" />
+
+                <com.loogear.loogearphone.uicontrol.CustomCheckBox xmlns:custom="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/call_speaker"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    custom:checked="false"
+                    custom:checked_image="@drawable/mianti2"
+                    custom:image_height="30"
+                    custom:image_width="30"
+                    custom:title_text="@string/speaker_on"
+                    custom:title_text_color="@android:color/white"
+                    custom:title_text_fontsize="14"
+                    custom:title_text_margin_top="3"
+                    custom:unchecked_image="@drawable/mianti1" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>
