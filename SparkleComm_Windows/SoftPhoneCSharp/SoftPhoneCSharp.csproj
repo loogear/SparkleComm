@@ -44,6 +44,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="SparkleCommNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\SparkleCommNet.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.93.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
@@ -196,12 +200,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SparkleCommNet\SparkleCommNet.csproj">
-      <Project>{fce95643-bdf0-4039-8e36-7b31fbef1c09}</Project>
-      <Name>SparkleCommNet</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\icon.ico" />
