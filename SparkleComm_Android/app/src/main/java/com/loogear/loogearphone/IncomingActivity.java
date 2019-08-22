@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.media.AudioManager;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -187,9 +188,42 @@ public class IncomingActivity extends AppCompatActivity implements View.OnClickL
     }
 
     /**
+     * 恢复音频模式
+     */
+    private void SetNormalAudioMode(){
+        Log.i(TAG, "SetNormalAudioMode");
+        try {
+            AudioManager audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
+            audioManager.setMode(AudioManager.MODE_NORMAL);
+            if (!audioManager.isSpeakerphoneOn()) {
+                audioManager.setSpeakerphoneOn(true);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 铃声模式
+     */
+    private void SetRingAudioMode(){
+        Log.i(TAG, "SetRingAudioMode");
+        try {
+            AudioManager audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
+            audioManager.setMode(AudioManager.MODE_RINGTONE);
+            if (!audioManager.isSpeakerphoneOn()) {
+                audioManager.setSpeakerphoneOn(true);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * 播放铃声
      */
     private void playRing() {
+        SetRingAudioMode();
         Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
         m_Ringtone = RingtoneManager.getRingtone(this, notification);
         m_Ringtone.play();
@@ -234,6 +268,7 @@ public class IncomingActivity extends AppCompatActivity implements View.OnClickL
             }
             case R.id.imgHangup: { // 拒绝
                 PhoneApi.getInstance().releaseCall(m_CallId, m_AccountId);
+				SetNormalAudioMode();
                 break;
             }
         }
