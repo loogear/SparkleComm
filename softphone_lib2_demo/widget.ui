@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Widget</class>
+ <widget class="QWidget" name="Widget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>578</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Widget</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLineEdit" name="accountEdit">
+     <property name="text">
+      <string>9513158884544</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="registerButton">
+     <property name="text">
+      <string>Register</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="phoneNumber">
+     <property name="text">
+      <string>9513160002155</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="makeCallBTN">
+     <property name="text">
+      <string>Make Call</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="showPreviewBTN">
+     <property name="text">
+      <string>Show Video Preview</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="showPreviewBTN1">
+     <property name="text">
+      <string>PushButton</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="ShowVideoBTN">
+     <property name="text">
+      <string>Show Video</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="playFileBTN">
+     <property name="text">
+      <string>Play File</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="holdCallBTN">
+     <property name="text">
+      <string>Hold Call</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="confereceAllBTN">
+     <property name="text">
+      <string>Conferece All calls</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="callStaticsInfoBTN">
+     <property name="text">
+      <string>Call statics</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="peerAddrEdit">
+     <property name="text">
+      <string>yue.heqiang</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTextEdit" name="msgTextEdit"/>
+   </item>
+   <item>
+    <widget class="QPushButton" name="sendMsgButton">
+     <property name="text">
+      <string>Send Message</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="subScribeButton">
+     <property name="text">
+      <string>SubScribe</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="createRoomButton">
+     <property name="text">
+      <string>Create Room</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

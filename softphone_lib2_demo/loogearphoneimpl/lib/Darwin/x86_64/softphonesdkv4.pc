@@ -1,0 +1,12 @@
+prefix=/Users/roland/Qt/online/5.15.2/clang_64
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+
+Name: Softphonesdkv4
+Description: Softphonesdkv4 Library
+Version: 1.0.0
+Libs: -L${libdir} -lsoftphonesdkv4 
+Cflags: -I${includedir}
+

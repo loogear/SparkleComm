@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>cameraView.qml</file>
+        <file>pics/videobackgroud.png</file>
+    </qresource>
+</RCC>

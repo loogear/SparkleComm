@@ -1,0 +1,12 @@
+prefix=/Applications/Qt/online/5.15.2/android
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+
+Name: Softphonesdkv4_x86
+Description: Softphonesdkv4_x86 Library
+Version: 1.0.0
+Libs: -L${libdir} -lsoftphonesdkv4_x86 
+Cflags: -I${includedir}
+

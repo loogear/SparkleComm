@@ -1,0 +1,13 @@
+prefix=/Applications/Qt/online/5.15.2/ios
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+
+Name: Softphonesdkv4
+Description: Softphonesdkv4 Library
+Version: 1.0.0
+Libs: -F${libdir} -framework libsoftphonesdkv4.a 
+Libs.private: -L/Users/roland/work/soft-develop/leiqiangsoftphone/corelibs2/build_target/ios/armv7s -lcore_sua -lcore_sua2 -lcore_sip -lmedia_codec -lilbc -lgsm -lg7221 -lspeex -ldevice_driver -lmedia_lib -lresample_lib -lcorenath -lyuv_lib -lsrtp_lib -lcoreutils -lpj -L/Volumes/data2/osc/webrtcs/qtwebrtc_build/out/ios/libs -laudio_processing -lcommon_audio -lsystem_wrappers -L/Users/roland/work/soft-develop/labs/voip_video/amr/install-bin/ios/lib -lopencore-amrnb -lopencore-amrwb -lvo-amrwbenc -lstdc++ /lib/libssl.a /lib/libcrypto.a -framework CoreAudio -framework AudioUnit -framework AudioToolbox -framework Cocoa -framework VideoToolbox -framework AVFoundation -framework CoreMedia -framework CoreVideo /Applications/Qt/online/5.15.2/ios/lib/libQt5Multimedia_debug.a /Applications/Qt/online/5.15.2/ios/lib/libQt5Gui_debug.a -framework Metal /Applications/Qt/online/5.15.2/ios/lib/libqtlibpng_debug.a /Applications/Qt/online/5.15.2/ios/lib/libqtharfbuzz_debug.a -framework CoreText -framework CoreGraphics /Applications/Qt/online/5.15.2/ios/lib/libQt5Network_debug.a -framework Security -framework SystemConfiguration -framework GSS /Applications/Qt/online/5.15.2/ios/lib/libQt5Core_debug.a -framework MobileCoreServices -lm -framework UIKit -framework CoreFoundation -framework Foundation -lz /Applications/Qt/online/5.15.2/ios/lib/libqtpcre2_debug.a -framework OpenGLES    
+Cflags: -I${includedir} -F${libdir}
+
