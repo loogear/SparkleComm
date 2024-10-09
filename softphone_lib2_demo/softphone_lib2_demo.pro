@@ -30,5 +30,5 @@ DEFINES += __STDC_CONSTANT_MACROS
 }
 #include(install.pri)
 
-RESOURCES += \
-    demoqml/qml.qrc
+# RESOURCES += \
+#     demoqml/qml.qrc

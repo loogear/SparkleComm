@@ -9,8 +9,9 @@ INCLUDEPATH += \
 win32{
 message("using win32")
 LIBPATH=$$PWD/lib/win32/
-#LIBS +=$$PWD/lib/win32/softphonesdk.lib
-LIBS +=$$LIBPATH/softphonesdk.lib
+LIBS +=$$LIBPATH/softphonesdkv4.lib
+LIBS +=$$LIBPATH/screencapdriver.lib
+# LIBS +=$$LIBPATH/instantmessagesdk.lib
 }
 BUILD_LIB2=for_debug
 android{
