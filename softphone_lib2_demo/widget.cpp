@@ -49,7 +49,7 @@ void Widget::on_registerButton_clicked()
     AcccConfig acc;
     long accountID=-2;
     acc.sip.domain="system.loogear.com";
-    acc.sip.userID="15255555555";
+    acc.sip.userID=userID;
     acc.sip.userPWD=userPWD;
     acc.sip.serverAddr="as3.loogear.com";
     acc.sip.port=41825;
