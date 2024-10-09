@@ -19,7 +19,7 @@ Widget::Widget(QWidget *parent) :
     preViewWin=NULL;
     callWin=NULL;
     ui->setupUi(this);
-    phoneLib =new Softphone_lib(0,0,this);
+    phoneLib =new Softphone_lib(0,0,this,TCP);
     connect(this,SIGNAL(showRreuqest(QString,QString)),
             this,SLOT(showRreuqestSlot(QString,QString)),Qt::QueuedConnection);
     connect(this,SIGNAL(newMessageSignal(QString,QString)),
@@ -42,13 +42,22 @@ Widget::~Widget()
 void Widget::on_registerButton_clicked()
 {
     QString userID=this->ui->accountEdit->text();
-    QString userPWD="e10adc3949ba59abbe56e057f20f883e";
+    QString userPWD="0J072n75Jyt2hLvGdarPFw==";
 
 
     this->phoneLib->enableVideo(true);
     AcccConfig acc;
-    long accountID;
-    this->phoneLib->registerToServer(acc,accountID);
+    long accountID=-2;
+    acc.sip.domain="system.loogear.com";
+    acc.sip.userID="15255555555";
+    acc.sip.userPWD=userPWD;
+    acc.sip.serverAddr="as3.loogear.com";
+    acc.sip.port=41825;
+    acc.sip.authWithDomain=false;
+    acc.sip.useIMS3GPP=false;
+
+  bool ret=  this->phoneLib->registerToServer(acc,accountID);
+    qDebug()<<"registerToServer:"<<ret;
 
 }
 
