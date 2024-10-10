@@ -143,7 +143,7 @@ void Widget::on_createRoomButton_clicked()
 
 void Widget::mediaIsRunningSlot()
 {
-    //setVideoWindows();
+    setVideoWindows();
     phoneLib->showIncominWindow();
     phoneLib->showOutgoingWindow();
 }
@@ -186,19 +186,18 @@ void Widget::setVideoWindows()
         preViewWin=new QWidget();
     if(callWin==NULL)
         callWin=new QWidget();
-
-    // NSWindow *prewin = [(NSView*)preViewWin->winId() window];
-    // NSWindow *incomingwin = [(NSView*)callWin->winId() window];
-
-
+    preViewWin->winId();
     VideoDisplay prVwin;
-    // prVwin.window=prewin;
-    //prVwin.window=NULL;
-
     VideoDisplay inComingVwin;
-  //  inComingVwin.window=incomingwin;
-    //inComingVwin.window=incomingwin;
-
+#ifdef Q_OS_WIN32
+    prVwin.window= (void *)  preViewWin->winId();
+    inComingVwin.window= (void *)  callWin->winId();
+#else
+   NSWindow *prewin = [(NSView*)preViewWin->winId() window];
+    NSWindow *incomingwin = [(NSView*)callWin->winId() window];
+    prVwin.window=prewin;
+    inComingVwin.window=incomingwin;
+#endif
     this->phoneLib->setVideoDisplays(prVwin,inComingVwin);
     preViewWin->move(0,0);
     callWin->move(0,20);
