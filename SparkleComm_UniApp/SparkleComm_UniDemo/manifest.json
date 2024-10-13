@@ -1,6 +1,6 @@
 {
     "name" : "SparkleComm_Uni",
-    "appid" : "__UNI__599892E",
+    "appid" : "__UNI__5D83710",
     "description" : "SparkleComm 音视频通话、视频会议",
     "transformPx" : false,
     "icons" : [
@@ -49,11 +49,12 @@
                     "<uses-permission android:name=\"android.permission.INTERNET\"/>",
                     "<uses-permission android:name=\"android.permission.LOCATION_HARDWARE\"/>",
                     "<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>",
-                    "<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>",
                     "<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>",
-                    "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>",
                     "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>"
                 ]
+            },
+            "ios" : {
+                "dSYMs" : false
             }
         }
     },

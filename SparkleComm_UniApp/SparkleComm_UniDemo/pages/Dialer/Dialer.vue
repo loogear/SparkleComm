@@ -87,7 +87,7 @@
 		},
 		onLoad() {
 			this.InitSdk();
-			this.RegisterToSipServer();
+			//this.RegisterToSipServer();
 		},
 		methods: {
 			InitSdk() {// 初始化SDK
@@ -116,16 +116,16 @@
 			},
 			RegisterToSipServer() { // 注册SIP服务器
 				PhoneSdk.RegisterToSipServer({
-					serverAddr: "192.168.0.247",
-					port: 5060,
-					userID: "1019",
-					userPWD: "123456",
-					accountID: 0,
-					domain: "192.168.0.247",
+					serverAddr: "as3.loogear.com",
+					port: 41825,
+					userID: "15255555555",
+					userPWD: "0J072n75Jyt2hLvGdarPFw==",
+					accountID: -2,
+					domain: "system.loogear.com",
 					authWithDomain: false,
 					idUri: "",
 					useIMS3GPP: false,
-					extraHeads: ""
+					extraHeads: "X-A:7989;X-T:0011987012gft43216678"
 				}, result => {
 					const msg = JSON.stringify(result);
 					console.log("RegisterToSipServer:result=" + msg);
@@ -160,11 +160,11 @@
 				}
 				else if (value.id == 3) {
 					this.logLine.push('拨打\n');
-					this.MakeCall("1010", false);
+					this.MakeCall("9386", false);
 				}
 				else if (value.id == 4) {
 					this.logLine.push('视频\n');
-					this.MakeCall("1010", true);
+					this.MakeCall("9386", true);
 				}
 				else if (value.id == 5) {
 				}
