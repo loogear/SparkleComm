@@ -6,7 +6,9 @@
 #include <QQuickItem>
 //#include <sphvideodecoder.h>
 #include "videosurfacehandle.h"
-
+#ifdef Q_OS_DARWIN64
+#import<Cocoa/Cocoa.h>
+#endif
 
 #define HANGUP "Hangup Call"
 #define MAKECALL "Make Call"
@@ -51,10 +53,16 @@ void Widget::on_registerButton_clicked()
     acc.sip.domain="system.loogear.com";
     acc.sip.userID=userID;
     acc.sip.userPWD=userPWD;
+#if 1
     acc.sip.serverAddr="as3.loogear.com";
     acc.sip.port=41825;
+#else
+    acc.sip.serverAddr="192.168.0.110";
+    acc.sip.port=41825;
+#endif
     acc.sip.authWithDomain=false;
     acc.sip.useIMS3GPP=false;
+    acc.option=AcccConfig::OnlySIP;
 
   bool ret=  this->phoneLib->registerToServer(acc,accountID);
     qDebug()<<"registerToServer:"<<ret;
@@ -164,7 +172,7 @@ void Widget::on_makeCallBTN_clicked()
 
 void Widget::on_showPreviewBTN_clicked()
 {
-    //this->setVideoWindows();
+    this->setVideoWindows();
     this->phoneLib->showVideoPrevieWindow();
 
     //on_showPreviewBTN1_clicked();
@@ -192,7 +200,9 @@ void Widget::setVideoWindows()
 #ifdef Q_OS_WIN32
     prVwin.window= (void *)  preViewWin->winId();
     inComingVwin.window= (void *)  callWin->winId();
-#else
+#endif
+
+#ifdef Q_OS_DARWIN64
    NSWindow *prewin = [(NSView*)preViewWin->winId() window];
     NSWindow *incomingwin = [(NSView*)callWin->winId() window];
     prVwin.window=prewin;
@@ -289,6 +299,7 @@ void Widget::callMediaAnnounce(QString peerAddr, MediaInfo::MediaType mediaType,
 void Widget::callMediaIsRunning(QString peerAddr, int callID, long accid)
 {
     qDebug()<<"callMediaIsRunning..."<<peerAddr;
+   // mediaIsRunningSlot();
     emit mediaIsRunning();
 }
 

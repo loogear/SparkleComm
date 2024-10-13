@@ -1,5 +1,0 @@
-QMAKE_PRL_BUILD_DIR = /private/tmp/softphonelib_build/android
-QMAKE_PRO_INPUT = softphone_lib2v7.pro
-QMAKE_PRL_TARGET = libsoftphonesdkv4_x86.so
-QMAKE_PRL_CONFIG = lex yacc exceptions depend_includepath testcase_targets import_plugins import_qpa_plugin file_copies qmake_use qt warn_on release link_prl android_install unversioned_soname unversioned_libname plugin_with_soname android_deployment_settings clang_pch_style android-21 shared cross_compile shared release android linux unix posix gcc clang llvm x86 X86Build X86 build_pass x86 X86Build X86 build_pass object_parallel_to_source sharedlib c++11 -std=c++11 create_pc create_prl x86 X86Build X86 build_pass have_target dll armeabi-v7a_and_arm64-v8a_and_x86_and_x86_64 build_all exclusive_builds multi_android_abi no_autoqmake thread opengl moc resources
-QMAKE_PRL_VERSION = 1.0.0
