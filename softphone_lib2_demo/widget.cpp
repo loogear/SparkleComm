@@ -5,11 +5,10 @@
 #include <QBuffer>
 #include <QQuickItem>
 //#include <sphvideodecoder.h>
-#include "videosurfacehandle.h"
 #ifdef Q_OS_DARWIN64
 #import<Cocoa/Cocoa.h>
 #endif
-
+#include <QVideoWidget>
 #define HANGUP "Hangup Call"
 #define MAKECALL "Make Call"
 #define ANSWERCALL "Answer Call"
@@ -53,7 +52,7 @@ void Widget::on_registerButton_clicked()
     acc.sip.domain="system.loogear.com";
     acc.sip.userID=userID;
     acc.sip.userPWD=userPWD;
-#if 1
+#if 0
     acc.sip.serverAddr="as3.loogear.com";
     acc.sip.port=41825;
 #else

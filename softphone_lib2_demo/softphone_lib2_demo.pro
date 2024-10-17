@@ -5,23 +5,31 @@
 #-------------------------------------------------
 
 QT       += core gui  network xml multimedia qml quick
+QT += multimediawidgets
 !macx{
 CONFIG -= app_bundle
 }
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = softphone_lib2_demo
+TARGET = softphone_lib2222_demo
 TEMPLATE = app
 include(loogearphoneimpl/loogearphoneimpl.pri)
  CONFIG += c++11
 SOURCES += main.cpp\
+    videorenderinstance.cpp \
+    videowidget.cpp \
         widget.cpp \
-    videosurfacehandle.cpp
+    videosurfacehandle.cpp \
+    videorender.cpp
 
 HEADERS  += widget.h \
-    videosurfacehandle.h
+    videorenderinstance.h \
+    videosurfacehandle.h \
+    videorender.h \
+    videowidget.h
 
-FORMS    += widget.ui
+FORMS    += widget.ui \
+    videowidget.ui
 macx{
 QMAKE_CXXFLAGS += -ObjC++
  CONFIG += c++11
@@ -31,7 +39,7 @@ OBJECTIVE_SOURCES += widget.mm
 QMAKE_CXXFLAGS +=  -Wc++11-extensions -Wc++11-long-long
 DEFINES += __STDC_CONSTANT_MACROS
 
-    ICON = $$PWD/res/macx/SparkleComm.icns
+    # ICON = $$PWD/res/macx/SparkleComm.icns
     QMAKE_INFO_PLIST =  $$PWD/res/macx/Info.plist
     OTHER_FILES += \
          $$PWD/res/macx/Info.plist
@@ -39,7 +47,7 @@ DEFINES += __STDC_CONSTANT_MACROS
 message("Current ICON:"$$ICON)
 
 QMAKE_TARGET_BUNDLE_PREFIX = com.loogear
-QMAKE_BUNDLE = softphone_lib2_demo
+QMAKE_BUNDLE = softphone_lib2222_demo
 }
 #include(install.pri)
 
