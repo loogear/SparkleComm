@@ -29,8 +29,8 @@ LIBS +=-lsoftphonesdk
 macx{
 message("using mac os x")
 
-#LIBPATH=$$PWD/lib/Darwin/x86_64
-LIBPATH=/Users/roland/work/soft-develop/sparklecomm/sparklecomm_libs/softphone_lib2v7/build_target/debug_version/Darwin/x86_64
+LIBPATH=$$PWD/lib/Darwin/$$QMAKE_HOST.arch
+#LIBPATH=/Users/roland/work/soft-develop/sparklecomm/sparklecomm_libs/softphone_lib2v7/build_target/debug_version/Darwin/$$QMAKE_HOST.arch
 LIBS +=-L$$LIBPATH
 LIBS +=-lsoftphonesdkv4
 }

@@ -1,0 +1,12 @@
+prefix=/opt/homebrew/Cellar/qt@5/5.15.13_1
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+
+Name: Softphonesdkv4
+Description: Softphonesdkv4 Library
+Version: 1.0.0
+Libs: -L${libdir} -lsoftphonesdkv4 
+Cflags: -I${includedir}
+
