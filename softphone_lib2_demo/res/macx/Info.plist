@@ -22,5 +22,7 @@
         <string>NSApplication</string>
         <key>NSSupportsAutomaticGraphicsSwitching</key>
         <true/>
+        <key>NSCameraUsageDescription</key>
+        <string>In order for participants to see you, requires access to your camera.用于打开麦克风进行通话用于打开麦克风进行通话</string>
 </dict>
 </plist>

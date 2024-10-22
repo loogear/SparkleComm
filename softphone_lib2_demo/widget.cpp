@@ -21,6 +21,8 @@ Widget::Widget(QWidget *parent) :
     callWin=NULL;
     ui->setupUi(this);
     phoneLib =new Softphone_lib(0,0,this,TCP);
+
+
     connect(this,SIGNAL(showRreuqest(QString,QString)),
             this,SLOT(showRreuqestSlot(QString,QString)),Qt::QueuedConnection);
     connect(this,SIGNAL(newMessageSignal(QString,QString)),
@@ -293,6 +295,23 @@ void Widget::callIsIncoming(QString peerAdder, int callID, long accid)
 
 void Widget::callMediaAnnounce(QString peerAddr, MediaInfo::MediaType mediaType, int callID, long accid)
 {
+    if(mediaType<MediaInfo::ONLY_VIDEO)return;
+    //获取视频设备列表
+    CameraDeviceList camerdevlist = phoneLib->getCameraDevice();
+    for (auto &it:camerdevlist) {
+        qDebug()<<"camer deviceId:"<<it.deviceId;
+        qDebug()<<"camer name:"<<QString::fromStdString(it.name);
+
+        if(it.name == "B525 HD Webcam")
+        {
+            if(phoneLib->setDefaultCameraDevice(it.deviceId))
+            {
+                qDebug()<<"set name:"<<QString::fromStdString(it.name)<<" success \n";
+            } else {
+                qDebug()<<"set name:"<<QString::fromStdString(it.name)<<" faild \n";
+            }
+        }
+    }
 }
 
 void Widget::callMediaIsRunning(QString peerAddr, int callID, long accid)
