@@ -6,7 +6,7 @@ VideoWidget::VideoWidget(QWidget *parent)
     , ui(new Ui::VideoWidget)
 {
     ui->setupUi(this);
-    this->ui->videoIn->videoSurface();
+    //this->ui->videoIn->videoSurface();
 }
 
 VideoWidget::~VideoWidget()

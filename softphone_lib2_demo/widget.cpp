@@ -58,7 +58,8 @@ void Widget::on_registerButton_clicked()
     acc.sip.serverAddr="as3.loogear.com";
     acc.sip.port=41825;
 #else
-    acc.sip.serverAddr="192.168.0.110";
+    //acc.sip.serverAddr="192.168.0.110";
+    acc.sip.serverAddr = "183.230.190.196";
     acc.sip.port=41825;
 #endif
     acc.sip.authWithDomain=false;
@@ -173,34 +174,36 @@ void Widget::on_makeCallBTN_clicked()
 
 void Widget::on_showPreviewBTN_clicked()
 {
-    this->setVideoWindows();
-    this->phoneLib->showVideoPrevieWindow();
+    ////this->setVideoWindows();
+    ////this->phoneLib->showVideoPrevieWindow();
 
     //on_showPreviewBTN1_clicked();
 }
 
 void Widget::on_showPreviewBTN1_clicked()
 {
-    preViewWin->move(preViewWin->x(),preViewWin->y()-1);
-    preViewWin->move(preViewWin->x(),preViewWin->y()+1);
-    callWin->move(preViewWin->x(),preViewWin->y()-1);
-    callWin->move(preViewWin->x(),preViewWin->y()+1);
+    //preViewWin->move(preViewWin->x(),preViewWin->y()-1);
+    //preViewWin->move(preViewWin->x(),preViewWin->y()+1);
+    ////callWin->move(preViewWin->x(),preViewWin->y()-1);
+    ////callWin->move(preViewWin->x(),preViewWin->y()+1);
     //preViewWin->update();
     //preViewWin->show();
 }
 
 void Widget::setVideoWindows()
 {
-    if(preViewWin==NULL)
-        preViewWin=new QWidget();
+//    if(preViewWin==NULL)
+//        preViewWin=new QWidget();
     if(callWin==NULL)
         callWin=new QWidget();
-    preViewWin->winId();
+    //preViewWin->winId();
     VideoDisplay prVwin;
     VideoDisplay inComingVwin;
 #ifdef Q_OS_WIN32
-    prVwin.window= (void *)  preViewWin->winId();
+    //prVwin.window = (void *)  preViewWin->winId();
+    prVwin.window = (void *)0;
     inComingVwin.window= (void *)  callWin->winId();
+    //inComingVwin.window = (void *)0;
 #endif
 
 #ifdef Q_OS_DARWIN64
@@ -210,9 +213,9 @@ void Widget::setVideoWindows()
     inComingVwin.window=incomingwin;
 #endif
     this->phoneLib->setVideoDisplays(prVwin,inComingVwin);
-    preViewWin->move(0,0);
+    //preViewWin->move(0,0);
     callWin->move(0,20);
-    preViewWin->show();
+    //preViewWin->show();
     callWin->show();
 }
 
@@ -228,7 +231,7 @@ void Widget::on_callStaticsInfoBTN_clicked()
 
 void Widget::on_playFileBTN_clicked()
 {
-    this->phoneLib->playFileToCall("/data/ttt/voice/pipayu.wav",0);
+    //this->phoneLib->playFileToCall("/data/ttt/voice/pipayu.wav",0);//临时注释
 }
 
 void Widget::on_holdCallBTN_clicked()
@@ -284,6 +287,14 @@ void Widget::callIsReleased(QString number, int callID, int causeCode, QString r
 {
     qDebug()<<"callIsReleased..."<<(number);
     this->ui->makeCallBTN->setText(MAKECALL);
+    //callWin->close();//add
+    if(QThread::currentThread() == this->thread()){
+         qDebug()<<"same thread!";
+         callWin->close();
+    }else{
+        qDebug()<<"different thread!";
+        QMetaObject::invokeMethod(callWin, "close");
+    }
 }
 
 void Widget::callIsIncoming(QString peerAdder, int callID, long accid)
