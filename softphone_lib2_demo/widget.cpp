@@ -174,18 +174,18 @@ void Widget::on_makeCallBTN_clicked()
 
 void Widget::on_showPreviewBTN_clicked()
 {
-    ////this->setVideoWindows();
-    ////this->phoneLib->showVideoPrevieWindow();
+    this->setVideoWindows();
+    this->phoneLib->showVideoPrevieWindow();
 
     //on_showPreviewBTN1_clicked();
 }
 
 void Widget::on_showPreviewBTN1_clicked()
 {
-    //preViewWin->move(preViewWin->x(),preViewWin->y()-1);
-    //preViewWin->move(preViewWin->x(),preViewWin->y()+1);
-    ////callWin->move(preViewWin->x(),preViewWin->y()-1);
-    ////callWin->move(preViewWin->x(),preViewWin->y()+1);
+    preViewWin->move(preViewWin->x(),preViewWin->y()-1);
+    preViewWin->move(preViewWin->x(),preViewWin->y()+1);
+    callWin->move(preViewWin->x(),preViewWin->y()-1);
+    callWin->move(preViewWin->x(),preViewWin->y()+1);
     //preViewWin->update();
     //preViewWin->show();
 }
@@ -231,7 +231,7 @@ void Widget::on_callStaticsInfoBTN_clicked()
 
 void Widget::on_playFileBTN_clicked()
 {
-    //this->phoneLib->playFileToCall("/data/ttt/voice/pipayu.wav",0);//临时注释
+    this->phoneLib->playFileToCall("/data/ttt/voice/pipayu.wav",0);
 }
 
 void Widget::on_holdCallBTN_clicked()
@@ -287,7 +287,6 @@ void Widget::callIsReleased(QString number, int callID, int causeCode, QString r
 {
     qDebug()<<"callIsReleased..."<<(number);
     this->ui->makeCallBTN->setText(MAKECALL);
-    //callWin->close();//add
     if(QThread::currentThread() == this->thread()){
          qDebug()<<"same thread!";
          callWin->close();
