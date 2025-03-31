@@ -1,0 +1,74 @@
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.pro.user
+*.pro.user.*
+build-*
+!build_script
+build
+build_target
+# 忽略 Android Studio 相关的文件
+.idea/
+*.iml
+*.hprof
+
+# 生成的文件
+/build/
+out/
+
+# 本地配置文件
+/local.properties
+
+# 依赖库
+/.gradle/
+/captures/
+
+# 日志文件
+*.log
+
+# 编译输出
+*.apk
+*.aab
+*.dex
+*.class  
+*.o
+*.obj
+
+# Gradle 缓存
+.gradle/
+/gradle/
+
+# Kotlin 编译缓存
+/.kotlin/
+
+# Android Lint 结果
+lint/intermediates/
+lint/generated/
+lint/outputs/
+
+# Proguard 混淆文件
+proguard/
+
+# 其他 IDE 相关文件
+*.sublime-project
+*.sublime-workspace
+*.vscode/
+
+# 操作系统生成的文件
+.DS_Store
+Thumbs.db
+
+# Keystore 文件（如果使用）
+*.keystore
+*.jks
+
+# NDK 相关
+.obj/ 
+*.d
+
+# 其他可能的临时文件
+tmp/
