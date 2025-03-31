@@ -1,0 +1,15 @@
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.pro.user
+*.pro.user.*
+build-*
+!build_script
+build
+build_target
+*.user
+softphone_lib2_demo/softphone_lib2_demo.pro.user
