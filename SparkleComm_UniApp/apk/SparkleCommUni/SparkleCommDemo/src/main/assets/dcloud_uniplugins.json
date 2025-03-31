@@ -1,0 +1,17 @@
+{
+  "nativePlugins": [
+    {
+      "hooksClass": "",
+      "plugins": [
+        {
+          "type": "module",
+          "name": "SparkleComm_Plugin",
+          "class": "com.loogear.SparkleComm_Plugin.VoIPWXModule"
+        }
+      ]
+    },
+    {
+      "hooksClass": "com.loogear.SparkleComm_Plugin.StepCounterHookProxy"
+    }
+  ]
+}

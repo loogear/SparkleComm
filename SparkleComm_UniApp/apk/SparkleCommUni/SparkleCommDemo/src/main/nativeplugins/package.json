@@ -1,0 +1,31 @@
+{
+	"name": "SparkleComm",
+	"id": "SparkleComm_Plugin",
+	"version": "1.0.0",
+	"description": "SparkleComm 音视频通话、视频会议插件",
+	"_dp_type":"nativeplugin",
+	"_dp_nativeplugin":{
+		"ios": {
+			"plugins": [
+				{
+					"type": "module",
+					"name": "SparkleComm_Plugin",
+					"class": "DCRichAlertModule"
+				}
+			],
+			"integrateType": "library",
+			"deploymentTarget": "8.0"
+		},
+		"android": {
+			"plugins": [
+				{
+					"type": "module",
+					"name": "SparkleComm_Plugin",
+					"class": "com.loogear.SparkleComm_Plugin.VoIPWXModule"
+				}
+			],
+			"integrateType": "aar",
+			"minSdkVersion" : 16
+		}
+	}
+}
