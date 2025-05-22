@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>604</height>
+    <height>632</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,14 @@
    <item>
     <widget class="QLineEdit" name="accountEdit">
      <property name="text">
-      <string>15255555555</string>
+      <string>river01</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="pwdEdit">
+     <property name="text">
+      <string>123456</string>
      </property>
     </widget>
    </item>
@@ -31,7 +38,7 @@
    <item>
     <widget class="QLineEdit" name="phoneNumber">
      <property name="text">
-      <string>9386</string>
+      <string>13883020002</string>
      </property>
     </widget>
    </item>

@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <QBuffer>
 #include <QQuickItem>
+#include "httpclient.h"
 //#include <sphvideodecoder.h>
 #ifdef Q_OS_DARWIN64
 #import<Cocoa/Cocoa.h>
@@ -39,36 +40,46 @@ Widget::~Widget()
     delete ui;
 }
 
-
-
-
 void Widget::on_registerButton_clicked()
 {
-    QString userID=this->ui->accountEdit->text();
-    QString userPWD="0J072n75Jyt2hLvGdarPFw==";
-
-
+    QString userID = this->ui->accountEdit->text();
+    QString userPWD= this->ui->pwdEdit->text(); // "0J072n75Jyt2hLvGdarPFw==";
+    HttpClient *client = HttpClient::getInstance();
+    client->login(userID, userPWD, "-1", "false");
     this->phoneLib->enableVideo(true);
+}
+
+void Widget::loginFinishSlot(bool success, QByteArray data)
+{
+    if (!success)
+    {
+        qDebug() << "login failed";
+        return;
+    }
+    QJsonDocument json = QJsonDocument::fromJson(data);
     AcccConfig acc;
     long accountID=-2;
-    acc.sip.domain="system.loogear.com";
-    acc.sip.userID=userID;
-    acc.sip.userPWD=userPWD;
+    acc.sip.domain = json["m_domain"].toString();
+    acc.sip.userID = json["spId"].toString();
+    acc.sip.userPWD= json["spPwd"].toString();
 #if 0
     acc.sip.serverAddr="as3.loogear.com";
     acc.sip.port=41825;
-#else
     //acc.sip.serverAddr="192.168.0.110";
     acc.sip.serverAddr = "183.230.190.196";
     acc.sip.port=41825;
+#else
+    HttpClient *client = HttpClient::getInstance();
+    client->getSipServerInfo(acc.sip.serverAddr, acc.sip.port);
 #endif
+
     acc.sip.authWithDomain=false;
     acc.sip.useIMS3GPP=false;
     acc.option=AcccConfig::OnlySIP;
-
-  bool ret=  this->phoneLib->registerToServer(acc,accountID);
+    qDebug() << acc.sip.serverAddr << ":" << acc.sip.port
+             << "id:" << acc.sip.userID << "domain:" << acc.sip.domain;
+    bool ret=  this->phoneLib->registerToServer(acc,accountID);
     qDebug()<<"registerToServer:"<<ret;
-
 }
 
 void Widget::showRreuqestSlot(QString uid, QString msg)
@@ -211,6 +222,12 @@ void Widget::setVideoWindows()
     NSWindow *incomingwin = [(NSView*)callWin->winId() window];
     prVwin.window=prewin;
     inComingVwin.window=incomingwin;
+#endif
+#ifdef Q_OS_LINUX
+    //prVwin.window = (void *)  preViewWin->winId();
+    prVwin.window = (void *)nullptr;
+    inComingVwin.window= (void *)  callWin->winId();
+    //inComingVwin.window = (void *)0;
 #endif
     this->phoneLib->setVideoDisplays(prVwin,inComingVwin);
     //preViewWin->move(0,0);

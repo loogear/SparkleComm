@@ -16,6 +16,7 @@ TEMPLATE = app
 include(loogearphoneimpl/loogearphoneimpl.pri)
  CONFIG += c++11
 SOURCES += main.cpp\
+    httpclient.cpp \
     videorenderinstance.cpp \
     videowidget.cpp \
         widget.cpp \
@@ -23,6 +24,7 @@ SOURCES += main.cpp\
     videorender.cpp
 
 HEADERS  += widget.h \
+    httpclient.h \
     videorenderinstance.h \
     videosurfacehandle.h \
     videorender.h \
@@ -49,8 +51,10 @@ message("Current ICON:"$$ICON)
 QMAKE_TARGET_BUNDLE_PREFIX = com.loogear
 QMAKE_BUNDLE = softphone_lib2222_demo
 }
+win32{
 QMAKE_LFLAGS_WINDOWS = /SUBSYSTEM:WINDOWS,5.01
 QMAKE_LFLAGS_CONSOLE = /SUBSYSTEM:CONSOLE,5.01
+}
 #include(install.pri)
 
 # RESOURCES += \

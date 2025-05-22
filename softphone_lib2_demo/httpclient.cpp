@@ -4,6 +4,7 @@
 // 静态成员初始化
 HttpClient::Profile HttpClient::m_profile;
 QString HttpClient::m_token;
+QString HttpClient::m_renterId;
 QMutex HttpClient::m_profileMutex;
 HttpClient *HttpClient::__instance = nullptr;
 
@@ -185,7 +186,10 @@ void HttpClient::init(const QString &apiKey, const QString &apiSecret)
                       if (json["code"].toInt() == 0)
                       {
                           qDebug() << "init success" << json["msg"].toString();
-                          m_token = json["token"].toString();
+                          QJsonObject jo = json["data"].toObject();
+                          m_token = jo["token"].toString();
+                          m_renterId = jo["renterid"].toString();
+                          qDebug() << "renter:" << m_renterId << "token:" << m_token;
                       }
                       else
                       {
@@ -208,9 +212,9 @@ void HttpClient::login(const QString &uid, const QString &pwd, const QString &re
     QUrlQuery formData;
     formData.addQueryItem("phone", uid);
     formData.addQueryItem("pwd", pwd);
-    formData.addQueryItem("renterId", renterId);
+    formData.addQueryItem("renterId", m_renterId);
     formData.addQueryItem("isSip", isSip);
-    qDebug() << url << uid << pwd << renterId << isSip;
+    qDebug() << "login:" << url << uid << pwd << m_renterId << isSip;
     fetch(url, formData, QJsonDocument(), new LambdaHttpResponse
     {
         [this, renterId](int code, const QByteArray & data)
@@ -244,11 +248,12 @@ void HttpClient::login(const QString &uid, const QString &pwd, const QString &re
 
 void HttpClient::queryBindByPhone(const QString &accountID, const QString &renterId)
 {
+    Q_UNUSED(renterId)
     QString url = m_baseUrl + "/mobile/queryBindByPhone";
     QUrlQuery formData;
     formData.addQueryItem("phone", accountID);
-    formData.addQueryItem("renterId", renterId);
-    qDebug() << url << accountID << renterId;
+    formData.addQueryItem("renterId", m_renterId);
+    qDebug() << url << accountID << m_renterId;
     fetch(url, formData, QJsonDocument(), new LambdaHttpResponse
           {
               [this](int code, const QByteArray & data)

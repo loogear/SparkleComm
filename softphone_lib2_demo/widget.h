@@ -60,7 +60,8 @@ void on_confereceAllBTN_clicked();
 void on_ShowVideoBTN_clicked();
 
 public slots:
-void mediaIsRunningSlot();
+    void mediaIsRunningSlot();
+    void loginFinishSlot(bool success, QByteArray data);
 
 signals:
     void showRreuqest(QString uid,QString msg);

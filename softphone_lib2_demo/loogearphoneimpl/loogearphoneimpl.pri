@@ -4,8 +4,6 @@ DEFINES +=USING_QT_ENV
 INCLUDEPATH += \
       $$PWD/include/
 
-
-
 win32{
 message("using win32")
 LIBPATH=$$PWD/lib/win32/
@@ -26,21 +24,15 @@ LIBS +=-L$$LIBPATH
 LIBS +=-lsoftphonesdk
 }
 
-macx{
-message("using mac os x")
-
-LIBPATH=$$PWD/lib/Darwin/$$QMAKE_HOST.arch
-#LIBPATH=/Users/roland/work/soft-develop/sparklecomm/sparklecomm_libs/softphone_lib2v7/build_target/debug_version/Darwin/$$QMAKE_HOST.arch
-LIBS +=-L$$LIBPATH
-LIBS +=-lsoftphonesdkv4
-}
-linux!android{
+linux:!android{
 message("using linux")
 LINUX_DISTRIBUTION = $$system(lsb_release -is)
 LINUX_CODENAME = $$system(lsb_release -cs)
-LIBPATH=$$PWD/lib$$QMAKE_HOST.os/$$LINUX_DISTRIBUTION"_"$$LINUX_CODENAME/$$QMAKE_HOST.arch
+LIBPATH=$$PWD/lib/$$QMAKE_HOST.os/$$LINUX_DISTRIBUTION"_"$$LINUX_CODENAME/$$QMAKE_HOST.arch
 LIBS +=-L$$LIBPATH
 LIBS +=-lsoftphonesdkv4
+LIBS += -lv4l2 #-lSDL2
+message($$LIBPATH)
 }
 ios{
 message("using ios")
@@ -56,6 +48,9 @@ LIBS +=-lsoftphonesdk -lresolv -framework  CFNetwork
 macx{
 message("using mac os x")
 LIBS +=-lz -lresolv -lresolv
+LIBPATH=$$PWD/lib/Darwin/$$QMAKE_HOST.arch
+LIBS +=-L$$LIBPATH
+LIBS +=-lsoftphonesdkv4
 }
 message(LIBPATH=$$LIBPATH)
 

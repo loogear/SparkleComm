@@ -5,7 +5,8 @@
 #include <QDebug>
 #include <iostream>
 #include <cstdio>
-
+#include <QObject>
+#include "httpclient.h"
 
 void messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
@@ -82,18 +83,23 @@ int main(int argc, char *argv[])
     QTcpSocket socket;
     QNetworkProxy networkProxy;
     socket.setProxy(QNetworkProxy::NoProxy);
-    //socket.connectToHost("192.168.0.110", 41825); // google DNS, or something else reliable
-    socket.connectToHost("183.230.190.196", 41825);
+    // 创建HttpClient对象，输入应用服务器地址、端口，获取配置信息（如SIP服务器地址、端口等）
+    HttpClient *client = new HttpClient("as3.loogear.com", 41833, false);
+    QString addr;
+    int port = 0;
+    // 调用init初始化，校验应用密钥
+    client->init("e09137a7c62f442eb78ba5e6886aaae1", "fed9cb0543ae45269d56ddbbd89ce7a8");
+    client->getSipServerInfo(addr, port);
+    socket.connectToHost(addr, port);
+    Widget w;
+    // 关联登录完成的信号与槽函数
+    QObject::connect(client, &HttpClient::loginFinished, &w, &Widget::loginFinishSlot, Qt::QueuedConnection);
     if(socket.waitForConnected()){
         qDebug()<<"localAddress:"<<socket.localAddress().toString();
     }else{
         qDebug()<<"error:"<<socket.errorString();
-
     }
-
 #endif
-
-    Widget w;
     w.show();
     return a.exec();
 }

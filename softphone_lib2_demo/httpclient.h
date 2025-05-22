@@ -76,6 +76,7 @@ private:
     QString m_baseUrl;
     static Profile m_profile;
     static QString m_token;
+    static QString m_renterId;
     static QMutex m_profileMutex;
 
     // 内部方法
