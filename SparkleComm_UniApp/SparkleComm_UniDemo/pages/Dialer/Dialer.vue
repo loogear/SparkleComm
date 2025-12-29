@@ -38,8 +38,8 @@
 		data() {
 			return {
 				currentUser: {
-					account: '15255555555',
-					password: '0J072n75Jyt2hLvGdarPFw=='
+					account: '19900000000',
+					password: '123456a.'
 				},
 				callNumber: null,
 				state: "离线",
@@ -106,10 +106,10 @@
 			handleScan() {
 				uni.scanCode({
 					scanType: ['qrCode'],
-					success:(res)=> {
+					success: (res) => {
 						try {
 							const [account, password] = res.result.split(' ')
-							console.log(account,password)
+							console.log(account, password)
 							if (account && password) {
 								this.currentUser.account = account.trim();
 								this.currentUser.password = password.trim();
@@ -163,15 +163,14 @@
 				}
 				PhoneSdk.RegisterToSipServer({
 					serverAddr: "as3.loogear.com",
-					port: 41825,
+					port: 41833,
+					sipTranport: "TCP",
+					ssl: false,
+					apiKey: "0f04edc34b8d453b9f8238636b4f9e10",
+					apiSecret: "e6ae5fa5eccb4a17bb3a2f3f8839f451",
 					userID: this.currentUser.account,
 					userPWD: this.currentUser.password,
-					accountID: -2,
-					domain: "system.loogear.com",
-					authWithDomain: false,
-					idUri: "",
-					useIMS3GPP: false,
-					extraHeads: ""
+					renterID: "-2"
 				}, result => {
 					const msg = JSON.stringify(result);
 					console.log("RegisterToSipServer:result=" + msg);

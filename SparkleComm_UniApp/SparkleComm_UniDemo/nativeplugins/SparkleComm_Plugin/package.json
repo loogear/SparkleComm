@@ -24,8 +24,11 @@
 					"class": "com.loogear.SparkleComm_Plugin.VoIPWXModule"
 				}
 			],
+			"dependencies": [
+				
+			],
 			"integrateType": "aar",
-			"minSdkVersion" : 16
+			"minSdkVersion" : 21
 		}
 	}
 }
